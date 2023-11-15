@@ -40,11 +40,11 @@ outage_df.head()
    
    Something I wanted to ensure by visualizing the data I had on hand was that there was a sufficient number of data points for both outages in the the WECC region, but also outside of it as well. The bar chart below displays how even though the WECC region experienced the most outages, it still only accounted for a strong minority of all outages, indicating that there was more than enough data to work with.
    
-<iframe src="assets/outages_per_region_bar_chart.html" width=500 height=375 frameBorder=0></iframe>
+<iframe src="assets/outages_per_region_bar_chart.html" width=800 height=600 frameBorder=0></iframe>
    
    Before doing any official testing, I wanted to get a general idea of how outage durations compared across the various NERC regions. I formed the box plot below to get a general idea of whether or not the WECC region stood out from the others to any degree. It can be seen that even the WECC region has many outliars, it's mostly due to the fact that the WECC's max "whisker" doesn't reach quite as high as many of the other majors regions. In fact, it can easily be seen that its interquartile range is much lower than other large regions to the point that its visibly hard to distinguish the lines that indicate Q1, the median, and Q3. Its longest duration is also not quite as extreme as the those of a couple other major regions.
    
-<iframe src="assets/outage_durations_per_region_box_plot.html" width=500 height=375 frameBorder=0></iframe>
+<iframe src="assets/outage_durations_per_region_box_plot.html" width=800 height=600 frameBorder=0></iframe>
    
    I wanted to inspect the WECC in particular because I wanted to analyze California's primary region. The pivot table below presents the percentage of each state's outages that were handled by a certain region. It can be seen that over 99% of California's outages occured in the WECC region. Eleven other states are also covered to varying degrees by the WECC.
 
@@ -69,7 +69,7 @@ outage_pivoted_percents.head()
    
    To figure out the possiblity that the missingness in the "CAUSE.CATEGORY.DETAIL" was related on the values in the "CAUSE.CATEGORY" column, I conducted a permuation test that involved the distribution of "CAUSE.CATEGORY" data when "CAUSE.CATEGORY.DETAIL" was missing and the distribution of "CAUSE.CATEGORY" data when "CAUSE.CATEGORY.DETAIL" wasn't missing. 1000 permutations of the "CAUSE.CATEGORY.DETAIL" led to a p-value of 0.0 because none of the permutations led to a sample that had a greater total variation distance than the observed tvd of about 0.42. This p-value heavily indicates that the "CAUSE.CATEGORY.DETAIL" column is MAR due its relation to "CAUSE.CATEGORY".
    
-<iframe src="assets/tvd_empirical_distribution.html" width=500 height=375 frameBorder=0></iframe>
+<iframe src="assets/tvd_empirical_distribution.html" width=800 height=600 frameBorder=0></iframe>
    
    Another permutation test showed that "CAUSE.CATEGORY.DETAIL" was independent of "ANOMALY.LEVEL" because the resulting p-value was 0.763.
    
@@ -78,4 +78,4 @@ outage_pivoted_percents.head()
 
    My null hypothesis was that the distribution of "OUTAGE.DURATION" for WECC comes from the overall distribution whereas my alternative hypothesis was that the distribution of "OUTAGE.DURATION" for WECC is separate from the overall distribution. I chose the median of a region's outage duration as the test statistic because the data is numerical and it wouldn't be impacted too heavily by extreme duration outliars (which can be seen in the box plot in the Cleaning and EDA section). I went with a significance level of 0.05 as that is common in the industry and the resulting p-value of 0.0 is so far below said significance level that the null hypothesis can be rejected. Such a low p-value resulted from the oberserved test statistic of 219.5 being below all 10,000 sample test statistics.
    
-<iframe src="assets/dims_empirical_distribution.html" width=500 height=375 frameBorder=0></iframe>
+<iframe src="assets/dims_empirical_distribution.html" width=800 height=600 frameBorder=0></iframe>
