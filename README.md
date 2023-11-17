@@ -11,9 +11,6 @@ DSC 80 Project 3 | Donald Taggart
 - "CAUSE.CATEGORY": Tells the general cause
 - "CAUSE.CATEGORY.DETAIL": Tells a slightly more detailed description than "CAUSE.CATEGORY"
 - "OUTAGE.DURATION": Tells how long the outage lasted (int values representing minutes)
-- "RES.PRICE": Tells the residential sector's monthly electricity price (float values representing cents/kilowatt-hour)
-- "COM.PRICE": Tells the commercial sector's monthly electricity price (float values representing cents/kilowatt-hour)
-
 
 ---
 ### Cleaning and EDA
@@ -30,13 +27,13 @@ DSC 80 Project 3 | Donald Taggart
 outage_df.head()
 ```
    
-| U.S._STATE | NERC.REGION | ANOMALY.LEVEL | CAUSE.CATEGORY | CAUSE.CATEGORY.DETAIL | OUTAGE.DURATION | RES.PRICE | COM.PRICE | WECC |
-|:-------------|:--------------|----------------:|:-------------------|:------------------------|------------------:|------------:|------------:|:-------|
-| Minnesota    | MRO           |            -0.3 | severe weather     | nan                     |              3060 |       11.6  |        9.18 | False  |
-| Minnesota    | MRO           |            -0.1 | intentional attack | vandalism               |                 1 |       12.12 |        9.71 | False  |
-| Minnesota    | MRO           |            -1.5 | severe weather     | heavy wind              |              3000 |       10.87 |        8.19 | False  |
-| Minnesota    | MRO           |            -0.1 | severe weather     | thunderstorm            |              2550 |       11.79 |        9.25 | False  |
-| Minnesota    | MRO           |             1.2 | severe weather     | nan                     |              1740 |       13.07 |       10.16 | False  |
+| U.S._STATE   | NERC.REGION   |   ANOMALY.LEVEL | CAUSE.CATEGORY     | CAUSE.CATEGORY.DETAIL   |   OUTAGE.DURATION | WECC   |
+|:-------------|:--------------|----------------:|:-------------------|:------------------------|------------------:|:-------|
+| Minnesota    | MRO           |            -0.3 | severe weather     | nan                     |              3060 | False  |
+| Minnesota    | MRO           |            -0.1 | intentional attack | vandalism               |                 1 | False  |
+| Minnesota    | MRO           |            -1.5 | severe weather     | heavy wind              |              3000 | False  |
+| Minnesota    | MRO           |            -0.1 | severe weather     | thunderstorm            |              2550 | False  |
+| Minnesota    | MRO           |             1.2 | severe weather     | nan                     |              1740 | False  |
    
    Something I wanted to ensure by visualizing the data I had on hand was that there was a sufficient number of data points for both outages in the the WECC region, but also outside of it as well. The bar chart below displays how even though the WECC region experienced the most outages, it still only accounted for a strong minority of all outages, indicating that there was more than enough data to work with.
    
