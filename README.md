@@ -21,7 +21,7 @@ DSC 80 Project 3 | Donald Taggart
    
    I also used a helper function that utilized pd.Timestamp() to convert four time-related columns into only two, but ended up dropping the resulting two columns because they were not needed for any of the analysis that was to come.
    
-   I also removed any row where the "OUTAGE.DURATION" value was missing because it was unclear based off of the provided data and information available what type of missingness mechanism it resulted from (for example it wasn't evident that the missingess of "OUTAGE.DURATION" was related to values from columns such as "NERC.REGION"). These rows made up less than 4% of the initial data so it was a relatively trivial amount that wouldn't have had a sizable impact on future results even if it were NMAR or MAR
+   I also removed any row where the "OUTAGE.DURATION" value was missing because it was unclear based off of the provided data and information available what type of missingness mechanism it resulted from (for example it wasn't evident that the missingess of "OUTAGE.DURATION" was related to values from columns such as "NERC.REGION"). These rows made up less than 4% of the initial data so it was a relatively trivial amount that wouldn't have had a sizable impact on future results even if it were NMAR or MAR.
    
 ```py
 outage_df.head()
